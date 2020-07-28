@@ -73,21 +73,19 @@ class _HomePageState extends State<HomePage> {
       onPressed: () async {
         //https:/adrianmmudarra.es
         //geo:40.71174275262298,-73.7793482824219
-        dynamic futureString ="https:/adrianmmudarra.es";
+        ScanResult futureString;
         //dynamic futureString = "geo:40.71174275262298,-73.7793482824219";
 
-        /*try {
+        try {
           futureString = await BarcodeScanner.scan();
         }catch(e){
-          futureString=e.toString();
-        }*/
+          futureString=null;
+        }
+        print("Mensaje: ${futureString.rawContent}");
 
         if(futureString != null){
-          final scan = ScanModel(valor: futureString);
+          final scan = ScanModel(valor: futureString.rawContent);
           scansBloc.agregarScan(scan);
-
-          final scan2 = ScanModel(valor: "geo:40.71174275262298,-73.7793482824219");
-          scansBloc.agregarScan(scan2);
 
           if(Platform.isIOS){
             Future.delayed(Duration(milliseconds: 750), () {

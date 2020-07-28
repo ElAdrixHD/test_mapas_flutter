@@ -5,9 +5,10 @@ import 'package:qr_sqlite/src/models/scans_model.dart';
 import 'package:qr_sqlite/utils/scan_utils.dart' as scanUtil;
 
 class MapasPage extends StatelessWidget {
+  final scansBloc = ScansBloc();
   @override
   Widget build(BuildContext context) {
-    final scansBloc = ScansBloc();
+    scansBloc.obtenerScans();
     return StreamBuilder<List<ScanModel>>(
       stream: scansBloc.scansStream,
       builder: (BuildContext context, AsyncSnapshot<List<ScanModel>> snapshot) {

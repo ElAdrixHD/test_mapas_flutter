@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong/latlong.dart';
+import 'package:qr_sqlite/src/bloc/scan_bloc.dart';
 import 'package:qr_sqlite/src/models/scans_model.dart';
 
 class MapaPage extends StatefulWidget {
